@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.12
+FROM node:latest
 WORKDIR /opt/app
 COPY . .
 RUN npm install
