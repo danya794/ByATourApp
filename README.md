@@ -1,6 +1,6 @@
-[Отчет по тестированию] (https://github.com/danya794/ByATourApp/blob/main/Report.md)
+[Отчет по тестированию](https://github.com/danya794/ByATourApp/blob/main/Report.md)
 
-[Отчет по автоматизации] (https://github.com/danya794/ByATourApp/blob/main/Summury.md)
+[Отчет по автоматизации](https://github.com/danya794/ByATourApp/blob/main/Summury.md)
 
 ### Запуск приложения
 Для запуска приложения необходимо установить Docker
