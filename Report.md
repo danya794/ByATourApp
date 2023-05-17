@@ -10,16 +10,20 @@
 Общее количество тест-кейсов: 32
 
 При подключении к БД MySQL
-Успешных: 24
+
+Успешных: 24 
+
 Неуспешных: 8
 
-![Снимок экрана 2023-05-17 в 21.13.59.png](..%2F..%2FDesktop%2F%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-05-17%20%D0%B2%2021.13.59.png)
+![MySQL] (https://github.com/danya794/ByATourApp/blob/main/MySQL.png)
 
-При подключении к БД PostgreSQL
+При подключении к БД PostgreSQL 
+
 Успешных: 22
+
 Неуспешных: 10
 
-![Снимок экрана 2023-05-17 в 21.08.24.png](..%2F..%2FDesktop%2F%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202023-05-17%20%D0%B2%2021.08.24.png)
+![PostgreSQL] (https://github.com/danya794/ByATourApp/blob/main/PostgreSQL.png)
 
 Количество оформленных баг-репортов: 5
 
