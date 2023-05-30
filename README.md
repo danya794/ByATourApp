@@ -5,7 +5,7 @@
 ### Запуск приложения
 Для запуска приложения необходимо установить Docker
 
-- склонировать репозиторий `https://github.com/BednovaK/DiplomQA.git`
+- склонировать репозиторий `https://github.com/danya794/ByATourApp.git`
 
 - открыть склонированный проект в IntelliJ IDEA
 
@@ -20,10 +20,10 @@
 - запустить автотесты командой:
 
 для БД MySQL: 
-`./gradlew clean test -D db.url=jdbc:mysql://localhost:3306/app`
+`./gradlew clean test -Ddb.url=jdbc:mysql://localhost:3306/app`
 
 для БД PostgreSQL: 
-`./gradlew clean test -D db.url=jdbc:postgresql://localhost:5432/app`
+`./gradlew clean test -Ddb.url=jdbc:postgresql://localhost:5432/app`
 
 - запустить отчеты командой:
 
