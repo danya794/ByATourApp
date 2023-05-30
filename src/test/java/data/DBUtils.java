@@ -19,24 +19,23 @@ public class DBUtils {
         var deleteCreditEntity = "DELETE FROM credit_request_entity";
         var deleteOrderEntity = "DELETE FROM order_entity";
         var runner = new QueryRunner();
-        try (var conn = DriverManager.getConnection(
-                url, user, password)
-        ) {
-            runner.update(conn, deletePaymentEntity);
-            runner.update(conn, deleteCreditEntity);
-            runner.update(conn, deleteOrderEntity);
+
+        {
+            runner.update(deletePaymentEntity);
+            runner.update(deleteCreditEntity);
+            runner.update(deleteOrderEntity);
         }
     }
 
     @SneakyThrows
     public static String getPaymentStatus() {
-        String status = "SELECT status FROM payment_entity";
+        String status = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
         return getStatus(status);
     }
 
     @SneakyThrows
     public static String getCreditStatus() {
-        String status = "SELECT status FROM credit_request_entity";
+        String status = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1";
         return getStatus(status);
     }
 
@@ -44,10 +43,9 @@ public class DBUtils {
     public static String getStatus(String status) {
         String result = "";
         var runner = new QueryRunner();
-        try (var conn = DriverManager.getConnection(
-                url, user, password)
-        ) {
-            result = runner.query(conn, status, new ScalarHandler<String>());
+
+        {
+            result = runner.query(status, new ScalarHandler<String>());
             System.out.println(result);
             return result;
         }

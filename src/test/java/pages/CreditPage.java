@@ -32,15 +32,11 @@ public class CreditPage {
         owner.setValue(card.getOwner());
         cvc.setValue(card.getCardCVV());
         continueButton.click();
-        return new CreditPage();
+        return this;
     }
 
     public void checkApprovedForm() {
         approvedForm.shouldBe(Condition.visible, Duration.ofMillis(15000));
-    }
-
-    public void checkDeclinedForm() {
-        declinedForm.shouldBe(Condition.visible, Duration.ofMillis(15000));
     }
 
     public void checkCardNumberError() {
@@ -49,10 +45,6 @@ public class CreditPage {
 
     public void checkMonthError() {
         monthError.shouldBe(Condition.visible);
-    }
-
-    public void checkExpiredCardError() {
-        expiredCardError.shouldBe(Condition.visible);
     }
 
     public void checkYearError() {

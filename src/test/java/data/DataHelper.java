@@ -24,14 +24,6 @@ public class DataHelper {
         return ("0000 0000 0000 0000");
     }
 
-    public static String getEmptyNumberCard() {
-        return ("");
-    }
-
-    public static String getInvalidNumberCard() {
-        FakeValuesService fakeValuesService = new FakeValuesService(new Locale("en"), new RandomService());
-        return fakeValuesService.numerify("#### #### #### ####");
-    }
 
     public static String getInvalidPatternNumberCard() {
         FakeValuesService fakeValuesService = new FakeValuesService(new Locale("en"), new RandomService());
@@ -43,25 +35,6 @@ public class DataHelper {
         return LocalDate.now().format(DateTimeFormatter.ofPattern("MM"));
     }
 
-    public static String getPreviousMonth() {
-        int currentMonth = LocalDate.now().getMonthValue();
-        if (currentMonth == 1) {
-            return getLastMonth();
-        } else {
-            return LocalDate.now().minusMonths(1).format(DateTimeFormatter.ofPattern("MM"));
-        }
-    }
-
-    public static String getFirstMonth() {
-        int subtractMonth = LocalDate.now().getMonthValue();
-        return LocalDate.now().minusMonths(subtractMonth - 1).format(DateTimeFormatter.ofPattern("MM"));
-    }
-
-    public static String getLastMonth() {
-        int plusMonth = LocalDate.now().getMonthValue();
-        return LocalDate.now().plusMonths(12 - plusMonth).format(DateTimeFormatter.ofPattern("MM"));
-    }
-
     public static String getZeroMonth() {
         return ("00");
     }
@@ -70,14 +43,25 @@ public class DataHelper {
         return ("13");
     }
 
-    public static String getEmptyMonth() {
-        return ("");
+    // Генерация для поля "Год"
+
+    public static String getCurrentYear() {
+        int currentYear = LocalDate.now().getYear();
+        if (currentYear == 1) {
+            return getNextYear();
+        } else {
+            return LocalDate.now().minusYears(1).format(DateTimeFormatter.ofPattern("yy"));
+
+
+        //} else if (currentYear == 1) {
+            //return getPreviousYear();
+            //return LocalDate.now().minusYears(1).format(DateTimeFormatter.ofPattern("yy"));
+        }
     }
 
-    // Генерация для поля "Год"
-    public static String getCurrentYear() {
-        return LocalDate.now().format(DateTimeFormatter.ofPattern("yy"));
-    }
+    //public static String getCurrentYear() {
+        //return LocalDate.now().format(DateTimeFormatter.ofPattern("yy"));
+    //}
 
     public static String getPreviousYear() {
         return LocalDate.now().minusYears(1).format(DateTimeFormatter.ofPattern("yy"));
@@ -91,10 +75,6 @@ public class DataHelper {
         return ("00");
     }
 
-    public static String getEmptyYear() {
-        return ("");
-    }
-
     // Генерация для поля "Владелец"
     public static String getValidOwner() {
         Faker faker = new Faker((new Locale("en")));
@@ -106,16 +86,7 @@ public class DataHelper {
         return faker.name().firstName() + " " + faker.name().lastName();
     }
 
-    public static String getInvalidOwner() {
-        Faker faker = new Faker((new Locale("en")));
-        return faker.name().firstName();
-    }
-
-    public static String getEmptyOwner() {
-        return ("");
-    }
-
-    // Генерация для поля "CVC/CVV"
+    // Генерация для поля "CVV"
     public static String getValidCVV() {
         FakeValuesService fakeValuesService = new FakeValuesService(new Locale("en"), new RandomService());
         return fakeValuesService.numerify("###");
@@ -130,8 +101,27 @@ public class DataHelper {
         return fakeValuesService.numerify("##");
     }
 
+    // Генерация пустых полей
+
+    public static String getEmptyMonth() {
+        return ("");
+    }
+
+    public static String getEmptyYear() {
+        return ("");
+    }
+
+    public static String getEmptyOwner() {
+        return ("");
+    }
+
+    public static String getEmptyNumberCard() {
+        return ("");
+    }
+
     public static String getEmptyCVV() {
         return ("");
     }
+
 
 }
