@@ -19,11 +19,12 @@ public class DBUtils {
         var deleteCreditEntity = "DELETE FROM credit_request_entity";
         var deleteOrderEntity = "DELETE FROM order_entity";
         var runner = new QueryRunner();
+        var conn = DriverManager.getConnection(url, user, password);
 
         {
-            runner.update(deletePaymentEntity);
-            runner.update(deleteCreditEntity);
-            runner.update(deleteOrderEntity);
+            runner.update(conn, deletePaymentEntity);
+            runner.update(conn, deleteCreditEntity);
+            runner.update(conn, deleteOrderEntity);
         }
     }
 
@@ -43,9 +44,9 @@ public class DBUtils {
     public static String getStatus(String status) {
         String result = "";
         var runner = new QueryRunner();
-
+        var conn = DriverManager.getConnection(url, user, password);
         {
-            result = runner.query(status, new ScalarHandler<String>());
+            result = runner.query(conn, status, new ScalarHandler<String>());
             System.out.println(result);
             return result;
         }
