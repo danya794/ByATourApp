@@ -1,3 +1,4 @@
+### Документация
 [Отчет по тестированию](https://github.com/danya794/ByATourApp/blob/main/Report.md)
 
 [Отчет по автоматизации](https://github.com/danya794/ByATourApp/blob/main/Summury.md)
@@ -11,19 +12,22 @@
 
 - в терминале IntelliJ IDEA запустить Docker container командой `docker-compose up`
 
+
 - в терминале IntelliJ IDEA запустить SUT:
 
-с использованием БД MySQL командой `java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar artifacts/aqa-shop.jar` 
+  - с использованием **БД MySQL** командой `java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar artifacts/aqa-shop.jar` 
 
-с использованием БД PostgreSQL командой `java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -jar artifacts/aqa-shop.jar` 
+  - с использованием **БД PostgreSQL** командой `java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -jar artifacts/aqa-shop.jar` 
+
 
 - запустить автотесты командой:
 
-для БД MySQL: 
-`./gradlew clean test -Ddb.url=jdbc:mysql://localhost:3306/app`
+  - **для БД MySQL:** 
+  `./gradlew clean test -Ddb.url=jdbc:mysql://localhost:3306/app`
 
-для БД PostgreSQL: 
-`./gradlew clean test -Ddb.url=jdbc:postgresql://localhost:5432/app`
+  - **для БД PostgreSQL:** 
+  `./gradlew clean test -Ddb.url=jdbc:postgresql://localhost:5432/app`
+
 
 - запустить отчеты командой:
 
