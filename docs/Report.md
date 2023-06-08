@@ -11,17 +11,17 @@
 
 При подключении к БД MySQL
 
-Успешных: 24 
+Успешных: 22 
 
-Неуспешных: 8
+Неуспешных: 10
 
 ![MySQL](https://github.com/danya794/ByATourApp/blob/main/docs/MySQL.png)
 
 При подключении к БД PostgreSQL 
 
-Успешных: 22
+Успешных: 21
 
-Неуспешных: 10
+Неуспешных: 11
 
 ![PostgreSQL](https://github.com/danya794/ByATourApp/blob/main/docs/PostgreSQL.png)
 
