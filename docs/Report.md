@@ -15,7 +15,7 @@
 
 Неуспешных: 8
 
-![MySQL](https://github.com/danya794/ByATourApp/blob/main/MySQL.png)
+![MySQL](https://github.com/danya794/ByATourApp/blob/main/docs/MySQL.png)
 
 При подключении к БД PostgreSQL 
 
@@ -23,7 +23,7 @@
 
 Неуспешных: 10
 
-![PostgreSQL](https://github.com/danya794/ByATourApp/blob/main/PostgreSQL.png)
+![PostgreSQL](https://github.com/danya794/ByATourApp/blob/main/docs/PostgreSQL.png)
 
 Количество оформленных баг-репортов: 5
 

@@ -39,7 +39,7 @@ public class CardPaymentTest {
 
     @Test
     public void buyTourApprovedCard() {
-        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getNextYear(), getValidOwner(), getValidCVV());
+        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getYear(1), getValidOwner(), getValidCVV());
         var mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
@@ -50,8 +50,8 @@ public class CardPaymentTest {
 
     @Test
     public void buyTourDeclinedCard() {
-        CardInfo card = new CardInfo(getValidDeclinedCard(), getCurrentMonth(), getNextYear(), getValidOwner(), getValidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getValidDeclinedCard(), getCurrentMonth(), getYear(1), getValidOwner(), getValidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkApprovedForm();
@@ -60,8 +60,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourInvalidPatternCard() {
-        CardInfo card = new CardInfo(getInvalidPatternNumberCard(), getCurrentMonth(), getNextYear(), getValidOwner(), getValidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getInvalidPatternNumberCard(), getCurrentMonth(), getYear(1), getValidOwner(), getValidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkCardNumberError();
@@ -70,8 +70,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourInvalidMonth() {
-        CardInfo card = new CardInfo(getValidActiveCard(), getInvalidMonth(), getCurrentYear(), getValidOwner(), getValidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getValidActiveCard(), getInvalidMonth(), getYear(0), getValidOwner(), getValidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkMonthError();
@@ -80,8 +80,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourInvalidYearCard() {
-        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getPreviousYear(), getValidOwner(), getValidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getYear(-1), getValidOwner(), getValidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkYearError();
@@ -90,8 +90,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourCyrillicOwner() {
-        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getNextYear(), getInvalidLocaleOwner(), getValidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getYear(1), getInvalidLocaleOwner(), getValidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkOwnerError();
@@ -100,8 +100,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourInvalidCVV() {
-        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getNextYear(), getValidOwner(), getInvalidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getYear(1), getValidOwner(), getInvalidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkCVCError();
@@ -110,8 +110,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourEmptyCard() {
-        CardInfo card = new CardInfo(getEmptyNumberCard(), getCurrentMonth(), getNextYear(), getValidOwner(), getValidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getEmptyFieldValue(), getCurrentMonth(), getYear(1), getValidOwner(), getValidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkCardNumberError();
@@ -120,8 +120,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourZeroCard() {
-        CardInfo card = new CardInfo(getZeroNumberCard(), getCurrentMonth(), getNextYear(), getValidOwner(), getValidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getZeroNumberCard(), getCurrentMonth(), getYear(1), getValidOwner(), getValidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkCardNumberError();
@@ -130,8 +130,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourZeroMonth() {
-        CardInfo card = new CardInfo(getValidActiveCard(), getZeroMonth(), getNextYear(), getValidOwner(), getValidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getValidActiveCard(), getZeroMonth(), getYear(1), getValidOwner(), getValidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkMonthError();
@@ -140,8 +140,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourEmptyMonth() {
-        CardInfo card = new CardInfo(getValidActiveCard(), getEmptyMonth(), getNextYear(), getValidOwner(), getValidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getValidActiveCard(), getEmptyFieldValue(), getYear(1), getValidOwner(), getValidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkMonthError();
@@ -150,8 +150,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourZeroYear() {
-        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getZeroYear(), getValidOwner(), getValidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getYear(0), getValidOwner(), getValidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkYearError();
@@ -160,8 +160,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourEmptyYear() {
-        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getEmptyYear(), getValidOwner(), getValidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getEmptyFieldValue(), getValidOwner(), getValidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkYearError();
@@ -170,8 +170,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourEmptyOwner() {
-        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getNextYear(), getEmptyOwner(), getValidCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getYear(1), getEmptyFieldValue(), getValidCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkOwnerError();
@@ -180,8 +180,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourZeroCVV() {
-        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getNextYear(), getValidOwner(), getZeroCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getYear(1), getValidOwner(), getZeroCVV());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkCVCError();
@@ -190,8 +190,8 @@ public class CardPaymentTest {
 
     @Test
     void buyTourEmptyCVV() {
-        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getNextYear(), getValidOwner(), getEmptyCVV());
-        var mainPage = new MainPage();
+        CardInfo card = new CardInfo(getValidActiveCard(), getCurrentMonth(), getYear(1), getValidOwner(), getEmptyFieldValue());
+        MainPage mainPage = new MainPage();
         mainPage.checkPaymentButton().
                 fillingForm(card).
                 checkCVCError();
